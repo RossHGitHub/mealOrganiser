@@ -1,0 +1,27 @@
+{
+  "name": "mealorganiser",
+  "version": "1.0.0",
+  "description": "A meal organiser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RossHGitHub/mealOrganiser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RossHGitHub/mealOrganiser/issues"
+  },
+  "homepage": "https://github.com/RossHGitHub/mealOrganiser#readme",
+  "devDependencies": {
+    "style-loader": "^3.3.3",
+    "css-loader": "^6.8.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

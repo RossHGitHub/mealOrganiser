@@ -1,10 +1,9 @@
-import { mealData } from "./mealData";
+import { mealData} from "./mealData";
+import { createLandingPage } from "./landingPage";
 export {createForm, submitMeal};
 
 
-function createForm(){
-let main = document.querySelector('body');
-let createMealButton = document.getElementById('createMealButton')
+function createForm(mainCon){
 
 //create Wrapper
 let backdrop = document.createElement('div');
@@ -50,8 +49,32 @@ ingButton.addEventListener('click', ()=>{
 //add Ingredients list
 
 let ingredientsArr = [];
-let ingredientsList = document.createElement('ul');
+let ingredientsList = document.createElement('ol');
 backdrop.appendChild(ingredientsList);
+
+
+//Instructions Link
+
+let instructionLinkWrap = document.createElement('div');
+
+let instructionLinkInput = document.createElement('input')
+instructionLinkInput.setAttribute('type', 'text');
+instructionLinkInput.setAttribute('placeholder', 'Paste Link or Leave Empty.');
+instructionLinkWrap.appendChild(instructionLinkInput);
+
+let instructionLinkButton = document.createElement('button');
+instructionLinkButton.setAttribute('type', 'button');
+instructionLinkButton.innerHTML='Add';
+instructionLinkButton.addEventListener('click', ()=>{
+    instructionLinkWrap.innerHTML=instructionLinkInput.value;
+})
+
+instructionLinkWrap.appendChild(instructionLinkButton);
+
+backdrop.appendChild(instructionLinkWrap);
+
+
+
 
 
 
@@ -63,14 +86,15 @@ submitMealButton.innerHTML = 'Submit Meal';
 backdrop.appendChild(submitMealButton);
 
 
+mainC.appendChild(backdrop);
 
 submitMealButton.addEventListener('click', ()=>{
-    main.removeChild(backdrop);
-    submitMeal(mealName.value,ingredientsArr, mealType.value)
-    main.appendChild(createMealButton);
+    mainCon.removeChild(backdrop);
+    createLandingPage(mainCon);
+    submitMeal(mealName.value,ingredientsArr, mealType.value, instructionLinkInput.value);
+ 
 });
-main.removeChild(createMealButton);
-main.appendChild(backdrop);
+
 
 
 
@@ -122,13 +146,14 @@ ingList.appendChild(ingWrap);
 
 }
 
-function submitMeal(mealName, mealIngredients, mealType){
+function submitMeal(mealName, mealIngredients, mealType, instructionLink){
 
     let meal = {}
 
     meal.Name = mealName;
     meal.Ingredients = mealIngredients;
     meal.Type = mealType
+    meal.Instructions = instructionLink;
 
     mealData(meal);
 

@@ -1,5 +1,7 @@
 
 body{
+    padding: 0;
+    margin: 0;
     background-color: rgb(94, 94, 94);
     height: 100vh;
     width: 100vw;
@@ -8,6 +10,27 @@ body{
     align-items: center;
     justify-content: center;
 
+}
+
+.topMenu{
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    color: white;
+}
+
+.topMenuItem{
+    border: 1px solid white;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+}
+.topMenuItem:hover{
+    background-color: rgb(129, 106, 76);
 }
 
 .formBack{
@@ -27,4 +50,9 @@ body{
 .ingNameInvalid{
     border-color: red;
     border-radius: 2px;
+}
+
+.mealWrap{
+    border: 2px solid black;
+    background-color: white;
 }

@@ -1,4 +1,4 @@
-export {mealData, pushToMemory}
+export {mealData, pushToMemory, loadDataFromLocalStorage, meals}
 
 
 let meals = [];
@@ -9,6 +9,14 @@ let IndianMeals = [];
 let AmericanMeals = [];
 let ItalianMeals = [];
 
+loadDataFromLocalStorage();
+
+function loadDataFromLocalStorage() {
+    const mealString = localStorage.getItem('meal');
+    if (mealString) {
+        meals = JSON.parse(mealString);
+    }
+}
 
 function mealData(meal) {
     meals.push(meal);
@@ -45,6 +53,8 @@ function mealData(meal) {
        console.log('No Memory Available')
       }
   }
+
+  
   
   
   

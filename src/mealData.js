@@ -1,4 +1,6 @@
-export {mealData, pushToMemory, loadDataFromLocalStorage, meals}
+import { createMeal } from "./myMeals";
+
+export {mealData, pushToMemory, loadDataFromLocalStorage, meals};
 
 
 let meals = [];
@@ -21,28 +23,8 @@ function loadDataFromLocalStorage() {
 function mealData(meal) {
     meals.push(meal);
     pushToMemory(meals);
+    sortType(meal);
   
-    switch (meal.Type) {
-      case 'English':
-        EnglishMeals.push(meal);
-        break;
-      case 'Asian':
-        AsianMeals.push(meal);
-        break;
-      case 'Indian':
-        IndianMeals.push(meal);
-        break;
-      case 'American':
-        AmericanMeals.push(meal);
-        break;
-      case 'Italian':
-        ItalianMeals.push(meal);
-        break;
-      default:
-        // Handle the case where meal.type doesn't match any known types
-        break;
-    }
-    console.log(`Eng: ${EnglishMeals}, Ais: ${AsianMeals}, Ind: ${IndianMeals}, USA: ${AmericanMeals}, ITA:${ItalianMeals}`)
   }
   
   function pushToMemory(meals){
@@ -55,8 +37,34 @@ function mealData(meal) {
       }
   }
 
-  
-  
+
+function sortType(meal){
+
+  let mealWrap = document.querySelector('mealWrap')
+  switch (meal.Type) {
+    case 'English':
+      EnglishMeals.push(meal);
+
+      break;
+    case 'Asian':
+      AsianMeals.push(meal);
+      break;
+    case 'Indian':
+      IndianMeals.push(meal);
+      break;
+    case 'American':
+      AmericanMeals.push(meal);
+      break;
+    case 'Italian':
+      ItalianMeals.push(meal);
+      break;
+    default:
+      // Handle the case where meal.type doesn't match any known types
+      break;
+  }
+}
+
+
   
   
   

@@ -4,6 +4,7 @@ import { loadDataFromLocalStorage } from "./mealData";
 import { createForm } from "./mealForm";
 
 export {displayMeals};
+export {createMeal}
 
 function displayMeals(mainC){
 

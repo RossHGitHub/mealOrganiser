@@ -2,6 +2,7 @@ import './style.css';
 import { createForm } from './mealForm';
 import { createLandingPage } from './landingPage';
 import { displayMeals } from './myMeals';
+import { randomize } from './mealData';
 
 let mainC = document.createElement('div');
 mainC.setAttribute('id', 'mainC')
@@ -31,4 +32,5 @@ homeButton.addEventListener('click', ()=>{
 
 currentMenu.addEventListener('click', ()=>{
     mainC.innerHTML='';
+    randomize();
 })

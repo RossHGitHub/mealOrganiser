@@ -22,7 +22,7 @@ function mealData(meal) {
     meals.push(meal);
     pushToMemory(meals);
   
-    switch (meal.type) {
+    switch (meal.Type) {
       case 'English':
         EnglishMeals.push(meal);
         break;
@@ -42,6 +42,7 @@ function mealData(meal) {
         // Handle the case where meal.type doesn't match any known types
         break;
     }
+    console.log(`Eng: ${EnglishMeals}, Ais: ${AsianMeals}, Ind: ${IndianMeals}, USA: ${AmericanMeals}, ITA:${ItalianMeals}`)
   }
   
   function pushToMemory(meals){

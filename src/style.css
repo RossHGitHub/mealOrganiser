@@ -13,7 +13,7 @@ body{
 }
 
 .topMenu{
-    position: absolute;
+    position: fixed;
     top: 0px;
     width: 100vw;
     height: 30px;
@@ -31,11 +31,13 @@ body{
 }
 .topMenuItem:hover{
     background-color: rgb(129, 106, 76);
+    cursor: pointer;
+    
 }
 
 .formBack{
-    height: 650px;
-    width: 400px;
+    height: 550px;
+    width: 300px;
     background-color: white;
     border: 2px solid black;
     border-radius: 10px;
@@ -55,4 +57,19 @@ body{
 .mealWrap{
     border: 2px solid black;
     background-color: white;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+}
+
+#mainC{
+    display: flex;
+    width: inherit;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: none;
+    padding-top: 70px;
+    
 }

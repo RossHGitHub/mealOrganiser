@@ -8,6 +8,8 @@ mainC.setAttribute('id', 'mainC')
 
 let addMeal = document.getElementById('addMeal');
 let myMeals = document.getElementById('myMeals');
+let homeButton = document.getElementById('home');
+let currentMenu = document.getElementById('currentMenu')
 
 createLandingPage(mainC)
 
@@ -22,4 +24,11 @@ myMeals.addEventListener('click', ()=>{
    displayMeals(mainC);
 })
 
+homeButton.addEventListener('click', ()=>{
+    mainC.innerHTML = '';
+    createLandingPage(mainC);
+})
 
+currentMenu.addEventListener('click', ()=>{
+    mainC.innerHTML='';
+})

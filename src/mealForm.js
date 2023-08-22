@@ -9,7 +9,11 @@ function createForm(mainCon){
 let backdrop = document.createElement('div');
 backdrop.classList='formBack';
 
+//create Form Title
 
+let formTitle = document.createElement('h2');
+formTitle.innerHTML='Create Meal'
+backdrop.appendChild(formTitle)
 //create Meal Name
 let mealName = document.createElement('input');
 mealName.setAttribute('type', 'text');
@@ -128,7 +132,6 @@ ingSubmit.addEventListener('click', ()=>{
             ingName.setAttribute('placeholder', 'IDIOT')
         } else {
         ingArr.push(ingName.value);
-        console.log(ingArr);
         
         let ing = document.createElement('li');
         ing.innerHTML=ingName.value;

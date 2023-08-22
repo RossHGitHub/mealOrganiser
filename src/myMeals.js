@@ -1,6 +1,7 @@
 import { meals } from "./mealData";
 import { pushToMemory } from "./mealData";
 import { loadDataFromLocalStorage } from "./mealData";
+import { createForm } from "./mealForm";
 
 export {displayMeals};
 
@@ -34,10 +35,16 @@ function displayMeals(mainC){
         let mealType = document.createElement('div');
         mealType.innerHTML = `Type: ${meal.Type}`;
         mealWrap.appendChild(mealType);
+
     
         let mealInst = document.createElement('div');
-        mealInst.innerHTML = `Recipe: ${meal.Instructions}`;
         mealWrap.appendChild(mealInst);
+        if(meal.Instructions === ''){
+            mealInst.innerHTML= 'Recipe: None';
+        } else {
+        mealInst.innerHTML = `Recipe: ${meal.Instructions}`;
+       
+        }
     
         let mealIngr = document.createElement('ol');
         mealIngr.innerHTML = meal.Ingredients;
@@ -56,7 +63,17 @@ function displayMeals(mainC){
                 localStorage.setItem('meal', JSON.stringify(storedMeals));
                 mainC.removeChild(mealWrap);
             }
+
+            
         });
+
+        // let editButton = document.createElement('button');
+        // editButton.innerHTML = 'Edit';
+        // mealWrap.appendChild(editButton);
+
+        // editButton.addEventListener('click', ()=>{
+        //     createForm();
+        // })
 
     mainC.appendChild(mealWrap);
 }

@@ -1,4 +1,4 @@
-import { meals } from "./mealData";
+import { meals, EnglishMeals, AmericanMeals, IndianMeals, ItalianMeals, AsianMeals } from "./mealData";
 import { pushToMemory } from "./mealData";
 import { loadDataFromLocalStorage } from "./mealData";
 import { createForm } from "./mealForm";
@@ -12,6 +12,7 @@ function displayMeals(mainC){
 
     let mealString = localStorage.getItem('meal');
     let storedMeals = JSON.parse(mealString);
+
 
     if(storedMeals === null){
         alert('Please Add Some Meals!')
@@ -59,14 +60,52 @@ function displayMeals(mainC){
             let index = storedMeals.indexOf(meal);
             if (index !== -1) {
                 storedMeals.splice(index, 1);
-                meals.splice(index, 1); 
+                meals.splice(index, 1);
+                // Identify the meal's type
+                let mealType = meal.Type;
+        
+                // Find the index of the meal in the category array based on its type
+                let categoryIndex = -1;
+                switch (mealType) {
+                    case 'English':
+                        categoryIndex = EnglishMeals.findIndex(item => item === meal);
+                        EnglishMeals.splice(categoryIndex, 1);
+                        break;
+                    case 'Asian':
+                        categoryIndex = AsianMeals.findIndex(item => item === meal);
+                        AsianMeals.splice(categoryIndex, 1);
+                        break;
+                    case 'Indian':
+                        categoryIndex = IndianMeals.findIndex(item => item === meal);
+                        IndianMeals.splice(categoryIndex, 1);
+                        break;
+                    case 'American':
+                        categoryIndex = AmericanMeals.findIndex(item => item === meal);
+                        AmericanMeals.splice(categoryIndex, 1);
+                        break;
+                    case 'Italian':
+                        categoryIndex = ItalianMeals.findIndex(item => item === meal);
+                        ItalianMeals.splice(categoryIndex, 1);
+                        break;
+                    default:
+                        break;
+                }
+
+                
+        
+                // Update local storage with modified storedMeals
                 pushToMemory(storedMeals);
-                localStorage.setItem('meal', JSON.stringify(storedMeals));
+        
+                
+                
+                // Remove the meal element from the DOM
                 mainC.removeChild(mealWrap);
             }
+        });
+        
 
             
-        });
+        
 
         // let editButton = document.createElement('button');
         // editButton.innerHTML = 'Edit';

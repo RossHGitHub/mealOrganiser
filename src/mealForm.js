@@ -158,6 +158,6 @@ function submitMeal(mealName, mealIngredients, mealType, instructionLink){
     meal.Type = mealType
     meal.Instructions = instructionLink;
 
-    mealData(meal);
+    mealData(meal, meal.Type);
 
 }

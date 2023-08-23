@@ -32,5 +32,5 @@ homeButton.addEventListener('click', ()=>{
 
 currentMenu.addEventListener('click', ()=>{
     mainC.innerHTML='';
-    randomize();
+  
 })

@@ -1,3 +1,5 @@
+import { randomize } from "./mealData";
+
 export {createLandingPage}
 
 let createLandingPage = function(main){
@@ -16,8 +18,15 @@ let createLandingPage = function(main){
 
     let randomizeButton = document.createElement('button');
     randomizeButton.setAttribute('type', 'button');
+    randomizeButton.setAttribute('id', 'randomizeButton')
     randomizeButton.innerHTML='Randomize';
     main.appendChild(randomizeButton);
+
+
+randomizeButton.addEventListener('click', ()=>{
+    randomize();
+});
+
 
 bod.appendChild(main);
 }

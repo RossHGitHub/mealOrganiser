@@ -2,36 +2,57 @@
 body{
     padding: 0;
     margin: 0;
-    background-color: rgb(94, 94, 94);
+    background-image: linear-gradient(rgb(224, 214, 214), rgb(162, 162, 225));
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
 
+html {
+    padding: 0;
+    margin: 0;
+}
+
+.mainHeader{
+    height: 100px;
+    width: inherit;
+    background-color: rgb(15, 28, 72);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: solid;
+}
 .topMenu{
-    position: fixed;
-    top: 0px;
     width: 100vw;
     height: 30px;
     display: flex;
     justify-content: space-evenly;
-    background-color: black;
-    color: white;
+    background-color: rgb(225, 167, 167);
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
 }
 
 .topMenuItem{
-    border: 1px solid white;
     width: inherit;
-    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    border-radius: 30px;
 }
 .topMenuItem:hover{
-    background-color: rgb(129, 106, 76);
+    background-color: rgb(215, 136, 127);
     cursor: pointer;
+    border: 1px solid black;
     
 }
 
@@ -46,6 +67,7 @@ body{
     justify-content: space-evenly;
     align-items: flex-start;
     padding-left: 40px;
+    box-shadow: 5px 5px 15px black;
 }
 
 
@@ -59,17 +81,35 @@ body{
     background-color: white;
     width: 300px;
     height: 150px;
-    margin: 10px;
+    margin: 20px;
+    overflow: scroll;
+    box-shadow: 5px 5px 9px rgb(46, 63, 80);
+    border-radius: 10px;
+}
+
+.mealWrap:hover{
+    cursor: pointer;
+    opacity: 50%;
 }
 
 #mainC{
     display: flex;
-    width: inherit;
-    height: inherit;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    overflow: none;
+    overflow: scroll;
     padding-top: 70px;
     
+}
+
+#mealName{
+    font-size: 20px;
+    font-weight: 800;
+    padding: 5px 5px 10px 5px;
+}
+
+#mainPara {
+    width: 10100px;
 }

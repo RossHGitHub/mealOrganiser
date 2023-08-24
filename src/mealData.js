@@ -1,4 +1,5 @@
 import { createMeal } from "./myMeals";
+import { currentMenu } from "./currentMenu";
 export {EnglishMeals, AsianMeals, IndianMeals, AmericanMeals, ItalianMeals}
 export {mealData, pushToMemory, loadDataFromLocalStorage, randomize, meals};
 
@@ -83,14 +84,20 @@ function randomFunc(arr){
 
 
 function randomize(){
-  let randEngMeal = randomFunc(EnglishMeals);
-  let randAsianMEal = randomFunc(AsianMeals);
-  let randIndMeal = randomFunc(IndianMeals);
-  let randAmeMeal = randomFunc(AmericanMeals);
-  let randItaMeal = randomFunc(ItalianMeals);
+  localStorage.removeItem('currentMenu')
+    let randMeals = []
+    
+    const shuffledMeals = [...meals]; // Create a copy of the meals array
+    for (let i = shuffledMeals.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledMeals[i], shuffledMeals[j]] = [shuffledMeals[j], shuffledMeals[i]];
+    }
+  
+    // Get the first 5 shuffled meals
+    randMeals = shuffledMeals.slice(0, 5);
+localStorage.setItem('currentMenu', JSON.stringify(randMeals));
+console.log(randMeals)
 
-  console.log(EnglishMeals, AsianMeals, AmericanMeals, IndianMeals, ItalianMeals);
-  console.log(randAmeMeal, randAsianMEal, randEngMeal, randIndMeal, randItaMeal)
 
 }
 

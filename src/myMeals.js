@@ -29,9 +29,18 @@ function displayMeals(mainC){
     function createMeal(meal, mainC, storedMeals) {
         let mealWrap = document.createElement('div');
         mealWrap.classList = 'mealWrap';
+
+            mealWrap.addEventListener('click', ()=>{
+                if (mealWrap.style.height === '400px'){
+                    mealWrap.style.height = '150px'
+                } else {
+                    mealWrap.style.height = '400px'
+                }
+            })
     
         let mealName = document.createElement('div');
         mealName.innerHTML = meal.Name;
+        mealName.setAttribute('id', 'mealName')
         mealWrap.appendChild(mealName);
     
         let mealType = document.createElement('div');

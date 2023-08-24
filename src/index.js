@@ -2,6 +2,7 @@ import './style.css';
 import { createForm } from './mealForm';
 import { createLandingPage } from './landingPage';
 import { displayMeals } from './myMeals';
+import { currentMenu } from './currentMenu';
 import { randomize } from './mealData';
 
 let mainC = document.createElement('div');
@@ -10,7 +11,7 @@ mainC.setAttribute('id', 'mainC')
 let addMeal = document.getElementById('addMeal');
 let myMeals = document.getElementById('myMeals');
 let homeButton = document.getElementById('home');
-let currentMenu = document.getElementById('currentMenu')
+let currentMenuButton = document.getElementById('currentMenu')
 
 createLandingPage(mainC)
 
@@ -30,7 +31,7 @@ homeButton.addEventListener('click', ()=>{
     createLandingPage(mainC);
 })
 
-currentMenu.addEventListener('click', ()=>{
+currentMenuButton.addEventListener('click', ()=>{
     mainC.innerHTML='';
-  
+  currentMenu(mainC)
 })

@@ -2,7 +2,6 @@ export {currentMenu};
 
 function currentMenu(main){
     main.innerHTML='';
-
     let mealArea = document.createElement('div');
     let mealAreaHead = document.createElement('h2');
     mealAreaHead.innerHTML = 'Current Menu'
@@ -30,6 +29,7 @@ function getCurrentMenu(mealArea){
     
         let mealName = document.createElement('div');
         mealName.innerHTML = element.Name;
+        mealName.setAttribute('class', 'mealName')
         mealWrap.appendChild(mealName);
     
         let mealType = document.createElement('div');

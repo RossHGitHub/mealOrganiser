@@ -14,7 +14,7 @@ let createLandingPage = function(main){
     main.appendChild(mainHead)
 
     let mainPara = document.createElement('p');
-    mainPara.innerHTML = 'Welcome to this meal prep app! Add your meals to me, then click randomize below, and I will create a nice variety of meals for you to enjoy throughout your week!';
+    mainPara.innerHTML = 'cock'
     mainPara.setAttribute('id', 'mainPara');
     main.appendChild(mainPara);
 

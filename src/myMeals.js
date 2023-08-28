@@ -40,11 +40,12 @@ function displayMeals(mainC){
     
         let mealName = document.createElement('div');
         mealName.innerHTML = meal.Name;
-        mealName.setAttribute('id', 'mealName')
+        mealName.setAttribute('class', 'mealName')
         mealWrap.appendChild(mealName);
     
         let mealType = document.createElement('div');
         mealType.innerHTML = `Type: ${meal.Type}`;
+        mealType.setAttribute('class', 'mealType')
         mealWrap.appendChild(mealType);
 
     

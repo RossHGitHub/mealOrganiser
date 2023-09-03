@@ -3,20 +3,35 @@ export {currentMenu};
 function currentMenu(main){
     main.innerHTML='';
     let mealArea = document.createElement('div');
+    mealArea.classList='mealArea';
     let mealAreaHead = document.createElement('h2');
-    mealAreaHead.innerHTML = 'Current Menu'
+    mealAreaHead.innerHTML = 'Current Menu';
+    let mealDisplay = document.createElement('div');
+    mealDisplay.classList='mealDisplay';
+   
+    
 
     mealArea.appendChild(mealAreaHead);
+    mealArea.appendChild(mealDisplay);
     main.appendChild(mealArea);
 
-    let ingredientArea = document.createElement('ol');
+    let ingredientArea = document.createElement('div');
+    ingredientArea.classList='ingredientsWrap'
+    let ingrTitle = document.createElement('h2');
+    ingrTitle.innerHTML = 'Ingredients For This Week';
+    ingredientArea.appendChild(ingrTitle);
+
+    let weeklyIngredients = document.createElement('ol');
+    weeklyIngredients.setAttribute('id', 'weeklyIngredients')
+    ingredientArea.appendChild(weeklyIngredients);
     main.appendChild(ingredientArea);
 
-   getCurrentMenu(mealArea);
+   getCurrentMenu(mealDisplay);
 }
 
-function getCurrentMenu(mealArea){
+function getCurrentMenu(mealDisplay){
     let currentMenuMeals = JSON.parse(localStorage.getItem('currentMenu'))
+    let weeklyIngredients = document.getElementById('weeklyIngredients');
 
     currentMenuMeals.forEach(element => {
 
@@ -47,10 +62,23 @@ function getCurrentMenu(mealArea){
         }
     
         let mealIngr = document.createElement('ol');
-        mealIngr.innerHTML = element.Ingredients;
-        mealWrap.appendChild(mealIngr);
+        element.Ingredients.forEach(item => {
+            let ingr = document.createElement('li');
+            ingr.innerHTML=item;
+            mealIngr.appendChild(ingr);
 
-        mealArea.appendChild(mealWrap);}
+            
+        })
 
-    });
-}
+        element.Ingredients.forEach(ingredient => {
+            const weeklyIngr = document.createElement('li');
+            weeklyIngr.innerHTML = ingredient;
+            weeklyIngredients.appendChild(weeklyIngr);
+        mealWrap.appendChild(mealIngr)});
+
+        mealDisplay.appendChild(mealWrap);}
+
+    })
+
+   
+};

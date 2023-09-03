@@ -47,10 +47,11 @@ html {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 30px;
+    border-radius: 5px;
 }
 .topMenuItem:hover{
-    background-color: rgb(215, 136, 127);
+    background-color: rgb(68, 65, 65);
+    color: white;
     cursor: pointer;
     border: 1px solid black;
     
@@ -117,4 +118,19 @@ html {
 
 #mainPara {
     width: 10100px;
+}
+
+.mealArea{
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mealDisplay{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
 }

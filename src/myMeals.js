@@ -31,10 +31,10 @@ function displayMeals(mainC){
         mealWrap.classList = 'mealWrap';
 
             mealWrap.addEventListener('click', ()=>{
-                if (mealWrap.style.height === '400px'){
+                if (mealWrap.style.height === '300px'){
                     mealWrap.style.height = '150px'
                 } else {
-                    mealWrap.style.height = '400px'
+                    mealWrap.style.height = '300px'
                 }
             })
     
@@ -59,7 +59,13 @@ function displayMeals(mainC){
         }
     
         let mealIngr = document.createElement('ol');
-        mealIngr.innerHTML = meal.Ingredients;
+      
+        meal.Ingredients.forEach(item => {
+            let ingr = document.createElement('li');
+            ingr.innerHTML=item;
+            mealIngr.appendChild(ingr);
+        })
+
         mealWrap.appendChild(mealIngr);
     
         let removeButton = document.createElement('button');

@@ -14,7 +14,9 @@ let createLandingPage = function(main){
     main.appendChild(mainHead)
 
     let mainPara = document.createElement('p');
-    mainPara.innerHTML = 'cock'
+    mainPara.style.margin='0px 200px 0px 200px';
+    mainPara.style.fontSize='20px'
+    mainPara.innerHTML = 'This is a basic meal Organiser. Input your meals using the "Add Meal" at the top, then once you have enough meals, click the Randomize button below, and I will give you a random selection of 5 meals, along with the ingredients you will need to make the meals. I will also provide you with a QR code you can scan on your phone to make a list of all the ingredients. '
     mainPara.setAttribute('id', 'mainPara');
     main.appendChild(mainPara);
 
